@@ -1,0 +1,36 @@
+{
+  "name": "react-project--1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susmithaabk5/Advance-React-18-2023.git"
+  },
+  "keywords": [
+    "advancereact",
+    "react2023",
+    "reacthooks"
+  ],
+  "author": "susmithaa babukrishnan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/susmithaabk5/Advance-React-18-2023/issues"
+  },
+  "homepage": "https://github.com/susmithaabk5/Advance-React-18-2023#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
