@@ -12,11 +12,14 @@ function filterData(searchInput, restarauntList) {
 export const Body = () => {
   const [searchInput, setsearchInput] = useState("");
   const [filteredRestaurants, setfilteredRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
   const onChangeInput = (e) => {
     setsearchInput(e.target.value);
   };
   const onSearchClick = () => {
-    const data = filterData(searchInput, restarauntList);
+    debugger;
+    const data = filterData(searchInput, allRestaurants);
+    console.log(data);
     setfilteredRestaurants(data);
   };
   useEffect(() => {
@@ -27,11 +30,11 @@ export const Body = () => {
       " https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.1487898&lng=80.2305586&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json, "json```````````");
+    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  return filteredRestaurants.length === 0 ? (
+  return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -48,9 +51,13 @@ export const Body = () => {
         </button>
       </div>
       <div className="restaurant_list">
-        {filteredRestaurants.map((restaurant, index) => {
-          return <RestaurantCard {...restaurant.data} key={index} />;
-        })}
+        {filteredRestaurants.length === 0 ? (
+          <h2>No restaurant match your filter</h2>
+        ) : (
+          filteredRestaurants?.map((restaurant, index) => {
+            return <RestaurantCard {...restaurant.data} key={index} />;
+          })
+        )}
       </div>
     </>
   );
