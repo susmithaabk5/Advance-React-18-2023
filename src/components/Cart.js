@@ -1,11 +1,11 @@
 import React from "react";
 
-function Footer() {
+function Cart() {
   return (
     <div>
-      <h1> Footer</h1>
+      <h1>cart</h1>
     </div>
   );
 }
 
-export default Footer;
+export default Cart;
