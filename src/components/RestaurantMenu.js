@@ -22,6 +22,9 @@ function RestaurantMenu() {
       <p>Restaurant Menu</p>
       <h1>{menu.name}</h1>
       <img src={IMG_CLOUD + menu.cloudinaryImageId} alt={menu.name} />
+      <h2>{menu.areaName}</h2>
+      <h2>{menu.city}</h2>
+      <div>{Object.values()}</div>
     </div>
   );
 }
