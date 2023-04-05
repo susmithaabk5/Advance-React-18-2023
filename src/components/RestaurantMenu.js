@@ -1,30 +1,31 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useMenu from "../../utils/hooks/useMenu";
 import { IMG_CLOUD } from "../data/constatnt";
 
 function RestaurantMenu() {
-  const [menu, setMenu] = useState({});
   const { id } = useParams();
-  useEffect(() => {
-    getRestaurantMenu();
-  }, []);
-  async function getRestaurantMenu() {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.1487898&lng=80.2305586&restaurantId=363359"
-    );
-    const json = await response.json();
-    const iterate = json?.data?.cards[0]?.card?.card.info;
-    setMenu(iterate);
-  }
+  const menuItems = useMenu(id);
   return (
-    <div>
-      <h1>Restaurant id = {id}</h1>
-      <p>Restaurant Menu</p>
-      <h1>{menu.name}</h1>
-      <img src={IMG_CLOUD + menu.cloudinaryImageId} alt={menu.name} />
-      <h2>{menu.areaName}</h2>
-      <h2>{menu.city}</h2>
-      <div>{Object.values()}</div>
+    <div className="cardMenu">
+      <div>
+        <h2 style={{ textAlign: "center" }}>Menu</h2>
+      </div>
+      <div>
+        <ul>
+          {menuItems?.map((item, index) => {
+            return (
+              <li>
+                <h4>
+                  {item?.card?.info?.name} ------- ₹
+                  {(item?.card?.info?.price || item?.card?.info?.defaultPrice) /
+                    100}
+                </h4>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
