@@ -14,8 +14,12 @@ export const HeaderComponent = () => {
           </Link>
 
           <li>About</li>
+
           <li>Contact</li>
           <li>Cart</li>
+          <Link to="/instamart">
+            <li>InstaMart</li>
+          </Link>
           <li>
             {isloggedIn ? (
               <button

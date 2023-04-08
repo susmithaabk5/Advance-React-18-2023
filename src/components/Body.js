@@ -33,7 +33,7 @@ export const Body = () => {
   }
   const isOnline = useOnline();
   if (!isOnline) {
-    return <h1>Offline, Please check your internet.</h1>;
+    return <h1>Offline, Please check your internet .</h1>;
   }
   return allRestaurants?.length === 0 ? (
     <Shimmer />
