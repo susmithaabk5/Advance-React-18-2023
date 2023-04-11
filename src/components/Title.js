@@ -1,9 +1,11 @@
 import React from "react";
 
 export const Title = () => (
-  <img
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEgT8UDEI1xkK_fJROtIdSBz9gbb79HStjg&usqp=CAU"
-    alt="logo"
-    className="logo"
-  />
+  <div className="relative">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/1532/1532688.png"
+      alt="logo"
+      className="h-20 p-1 w-full object-cover object-center  px-9 transform hover:scale-125 transition duration-300"
+    />
+  </div>
 );

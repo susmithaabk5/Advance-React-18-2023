@@ -39,7 +39,7 @@ export const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-4">
         <input
           type="text"
           className="search-bar"
