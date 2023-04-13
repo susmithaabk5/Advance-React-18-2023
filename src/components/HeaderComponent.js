@@ -3,7 +3,7 @@ import { Title } from "./Title";
 import { Link } from "react-router-dom";
 
 export const HeaderComponent = () => {
-  const [isloggedIn, setIsLoggedIn] = useState(false);
+  const [isloggedIn, setIsLoggedIn] = useState(true);
   return (
     <div className="flex space-x-2 items-center justify-between bg-orange-500 drop-shadow-lg  ">
       <Link to="/">

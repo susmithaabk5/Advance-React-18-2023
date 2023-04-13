@@ -39,20 +39,29 @@ export const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="p-4">
+      <div className=" w-80 p- 5 m-4 relative  bg-gray-100  flex items-center">
         <input
-          type="text"
-          className="search-bar"
+          type="search"
+          className="flex-grow bg-transparent text-gray-700 leading-tight focus:outline-none mr-2"
+          placeholder="Search for Restaurant and Foods...."
           value={searchInput}
-          placeholder="Search"
           onChange={(e) => onChangeInput(e)}
         />
-        <button className="search-button" onClick={() => onSearchClick()}>
-          Search
+        <button
+          className=" h-10 w-10 focus:outline-none flex-shrink-0"
+          onClick={() => onSearchClick()}
+        >
+          <svg
+            className="h-6 pl-2 fill-current text-orange-500"
+            viewBox="0 0 20 20"
+          >
+            <path d="M8 15a7 7 0 1 1 4.95-2.05L17 16.17l-.83.83-3.22-3.22A7 7 0 0 1 8 15zm0-2a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+          </svg>
         </button>
       </div>
-      <div className="restaurant_list">
-        {filteredRestaurants.length === 0 ? (
+
+      <div className="flex flex-wrap">
+        {filteredRestaurants?.length === 0 ? (
           <h2>No restaurant match your filter</h2>
         ) : (
           filteredRestaurants?.map((restaurant) => {
